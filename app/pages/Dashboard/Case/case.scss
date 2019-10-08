@@ -1,0 +1,15 @@
+.case{
+    display: flex;
+    .left-section{
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid black;
+        padding-right: 4px;
+    }
+    .right-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 4px;
+    }
+}

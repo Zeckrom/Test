@@ -1,0 +1,81 @@
+/**
+*
+* {{properCase name }}
+*
+*/
+
+{{#if memo}}
+import React, { memo } from 'react';
+{{else}}
+import React from 'react';
+{{/if}}
+import { connect } from 'react-redux';
+
+{{#if wantActionsAndReducer}}
+import { createStructuredSelector } from 'reselect';
+{{/if}}
+import { compose } from 'redux';
+{{#if wantSaga}}
+import injectSaga from 'utils/injectSaga';
+import { DAEMON } from 'utils/constants';
+{{/if}}
+{{#if wantActionsAndReducer}}
+import { useInjectReducer } from 'utils/injectReducer';
+import makeSelect{{properCase name}} from '../../shared/redux/{{ lowerCase name }}/selectors';
+import reducer from '../../shared/redux/{{ lowerCase name }}/reducer';
+
+{{#if wantActionsAndReducer}}
+import * as actions from '../../shared/redux/{{ lowerCase name }}/actions';
+{{/if}}
+
+{{/if}}
+{{#if wantSaga}}
+import saga from '../../shared/redux/{{ lowerCase name }}/saga';
+{{/if}}
+
+
+import {{properCase name }} from './{{properCase name }}';
+
+const {{ properCase name }}Index = (props) => {
+{{#if wantActionsAndReducer}}
+useInjectReducer({ key: '{{ camelCase name }}', reducer });
+{{/if}}
+
+  return (
+    <{{ properCase name }} {...props} />
+  )
+}
+
+
+{{#if wantActionsAndReducer}}
+const mapStateToProps = createStructuredSelector({
+{{ camelCase name }}: makeSelect{{properCase name}}(),
+});
+{{/if}}
+
+const mapDispatchToProps = {
+  {{#if wantActionsAndReducer}}
+  ...actions,
+{{/if}}
+
+};
+
+{{#if wantSaga}}
+const withSaga = injectSaga({ key: '{{ camelCase name }}', saga, mode: DAEMON });
+{{/if}}
+
+{{#if wantActionsAndReducer}}
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+{{else}}
+const withConnect = connect(null, mapDispatchToProps);
+{{/if}}
+
+export default compose(
+withConnect,
+{{#if memo}}
+memo,
+{{/if}}
+{{#if wantSaga}}
+withSaga,
+{{/if}}
+)({{ properCase name }}Index);

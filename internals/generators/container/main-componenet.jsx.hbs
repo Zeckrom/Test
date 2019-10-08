@@ -1,0 +1,44 @@
+/**
+*
+* {{properCase name }}
+*
+*/
+
+import React from 'react';
+
+// import PropTypes from 'prop-types';
+
+
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl';
+{{/if}}
+{{#if wantHeaders}}
+import { Helmet } from 'react-helmet';
+{{/if}}
+
+{{#if wantMessages}}
+import messages from './messages';
+{{/if}}
+
+import './{{ dashCase name }}.scss';
+
+
+const {{ properCase name }} = () =>
+<div className="{{ dashCase name }}">
+  {{#if wantHeaders}}
+  <Helmet>
+    <title>{{properCase name}}</title>
+    <meta name="description" content="Description of {{properCase name}}" />
+  </Helmet>
+  {{/if}}
+  {{#if wantMessages}}
+  <FormattedMessage {...messages.header} />
+  {{/if}}
+</div>
+
+
+
+{{ properCase name }}.propTypes = {
+};
+
+export default {{ properCase name }};

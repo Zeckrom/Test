@@ -1,0 +1,19 @@
+{
+  "app.components.Menu.dashboard": "Dashboard",
+  "app.components.Menu.graph": "Graph",
+  "app.components.Menu.issues": "Issues",
+  "app.components.Menu.logout": "Log out",
+  "app.components.TopBar.commits": "Commits",
+  "app.components.TopBar.dashboard": "Dashboard",
+  "app.components.TopBar.graph": "Graph",
+  "app.components.TopBar.issues": "Issues",
+  "app.containers.Articles.articlesList": "Articles list",
+  "app.containers.Articles.helmetDescription": "Description of Project Details",
+  "app.containers.Articles.helmetTitle": "Project Details",
+  "app.containers.Articles.introduction": "Hi, click on the button to display all the Articles",
+  "app.containers.Articles.refresh": "Refresh",
+  "app.containers.FourOFour.descriptionPart1": "Sorry, nothing to see here",
+  "app.containers.FourOFour.descriptionPart2": "Visit our",
+  "app.containers.FourOFour.descriptionPart3": "home page",
+  "app.containers.FourOFour.pageNotFound": "Page not found"
+}
